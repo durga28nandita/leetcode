@@ -9,7 +9,7 @@ class Solution {
                 break;
             }
         }
-        if(i<0)
+        if(i==-1)
         {
             rev(nums,0,nums.length-1);
             return;
