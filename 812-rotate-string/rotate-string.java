@@ -5,9 +5,32 @@ class Solution {
         {
             return false;
         }
-        if(s1.indexOf(goal)!=-1)
+        int i=0;
+        while(i<s.length())
         {
-            return true;
+            int k=i;
+            int j=0;
+            if(s1.charAt(k)==goal.charAt(0))
+            {
+                while(j<goal.length())
+                {
+                    if(s1.charAt(k)==goal.charAt(j))
+                    {
+                        k++;
+                        j++;
+                    }
+                    else
+                    {
+                        j=0;
+                        break;
+                    }
+                }
+                if(j==goal.length())
+                {
+                    return true;
+                }
+            }
+            i++;
         }
         return false;
     }
