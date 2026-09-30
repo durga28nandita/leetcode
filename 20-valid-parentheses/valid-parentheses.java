@@ -1,34 +1,34 @@
 class Solution {
     public boolean isValid(String s) {
-        ArrayList<Character> l=new ArrayList<>();
-        for(int i=0;i<s.length();i++)
+        Deque<Character> stack=new ArrayDeque<>();
+        for(char c:s.toCharArray())
         {
-            if(s.charAt(i)=='(' || s.charAt(i)=='['||s.charAt(i)=='{')
+            if(c=='('||c=='['||c=='{')
             {
-                l.add(s.charAt(i));
+                stack.push(c);
             }
             else
             {
-                if(l.isEmpty())
+                if(stack.isEmpty())
                 {
                     return false;
                 }
-                char  top=l.get(l.size()-1);
-                if(s.charAt(i)==')' && top!='(')
+                if((c==')' && stack.pop()!='('))
                 {
                     return false;
                 }
-                if(s.charAt(i)==']' &&  top!='[')
+                else  if((c==']' && stack.pop()!='['))
                 {
                     return false;
                 }
-                if(s.charAt(i)=='}' && top!='{')
+                else if(c=='}' && stack.pop()!='{')
                 {
                     return false;
                 }
-                l.remove(l.size()-1);
             }
         }
-        return l.isEmpty();
+        return (stack.isEmpty());
+
+        
     }
 }
