@@ -1,34 +1,40 @@
 class Solution {
     public boolean isValid(String s) {
-        Deque<Character> stack=new ArrayDeque<>();
+        Deque<Character>st=new ArrayDeque<>();
         for(char c:s.toCharArray())
         {
             if(c=='('||c=='['||c=='{')
             {
-                stack.push(c);
+                st.push(c);
             }
             else
             {
-                if(stack.isEmpty())
+                if(st.isEmpty())
                 {
                     return false;
                 }
-                if((c==')' && stack.pop()!='('))
+                if(c==')' && st.pop()!='(')
                 {
                     return false;
                 }
-                else  if((c==']' && stack.pop()!='['))
+                else  if(c==']' && st.pop()!='[')
                 {
                     return false;
                 }
-                else if(c=='}' && stack.pop()!='{')
+                else if(c=='}' && st.pop()!='{')
                 {
                     return false;
                 }
             }
         }
-        return (stack.isEmpty());
-
+        if(st.isEmpty())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
         
     }
 }
