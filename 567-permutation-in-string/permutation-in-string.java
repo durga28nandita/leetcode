@@ -11,13 +11,18 @@ class Solution {
             need[c-'a']++;
         }
         int k=s1.length();
-        for(int i=0;i<s2.length();i++)
+        for(int i=0;i<k;i++)
         {
             window[s2.charAt(i)-'a']++;
-            if(i>=k)
+            if(Arrays.equals(need,window))
             {
-                window[s2.charAt(i-k)-'a']--;
+                return true;
             }
+        }
+        for(int i=k;i<s2.length();i++)
+        {
+            window[s2.charAt(i-k)-'a']--;
+            window[s2.charAt(i)-'a']++;
             if(Arrays.equals(need,window))
             {
                 return true;
