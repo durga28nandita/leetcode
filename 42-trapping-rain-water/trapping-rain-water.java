@@ -2,8 +2,8 @@ class Solution {
     public int trap(int[] height) {
         int l=0;
         int r=height.length-1;
-        int rm=height[r];
-        int lm=height[0];
+        int lm=0;
+        int rm=0;
         int w=0;
         while(l<r)
         {
@@ -15,7 +15,7 @@ class Solution {
                 }
                 else
                 {
-                    w+=(lm-height[l]);
+                    w+=lm-height[l];
                 }
                 l++;
             }
@@ -27,7 +27,7 @@ class Solution {
                 }
                 else
                 {
-                    w+=(rm-height[r]);
+                    w+=rm-height[r];
                 }
                 r--;
             }
