@@ -5,7 +5,7 @@ class Solution {
         int lm=0;
         int rm=0;
         int w=0;
-        while(l<r)
+        while(l<=r)
         {
             if(height[l]<height[r])
             {
